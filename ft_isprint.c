@@ -2,10 +2,9 @@
 
 int	ft_isprint(int c)
 {
-	return (32 <= c && c <=126);
+	return (32 <= c && c <= 126);
 }
-#include <ctype.h>
-
+// #include <ctype.h>
 // int main(int argc, char const *argv[])
 // {
 // 	printf("本物%d\n",isprint(31));

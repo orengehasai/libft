@@ -1,6 +1,6 @@
 #include "libft.h"
 
-int isdigit(int c)
+int	isdigit(int c)
 {
 	return (0 <= c && c <= 9);
 }

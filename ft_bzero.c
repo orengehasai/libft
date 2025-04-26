@@ -3,12 +3,12 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	size_t i;
+	size_t	i;
 
 	if (!s)
-		return;
+		return ;
 	i = 0;
-	while(i < n)
+	while (i < n)
 	{
 		*(char *)(s + i) = 0;
 		i++;

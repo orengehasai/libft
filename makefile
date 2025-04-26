@@ -1,7 +1,7 @@
 NAME = libft.a
 CC = cc
 CFLAG = -Wall -Wextra -Werror
-SRC = ft_atoi.c
+SRC = ft_*.c
 OBJ = $(SRC:%.c=%.o)
 
 .PHONY:all
@@ -12,8 +12,6 @@ $(NAME):$(OBJ)
 
 $(OBJ):$(SRC)
 	$(CC) $(CFLAG) -c $< -o $@
-
-
 
 .PHONY:clean
 clean:
