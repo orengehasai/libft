@@ -2,7 +2,6 @@
 
 size_t	ft_strlcat(char *restrict dst, const char *restrict src, size_t dstsize)
 {
-	printf("%zu\n",dstsize);
 	size_t	srclen;
 	size_t	dstlen;
 	size_t	i;
@@ -25,9 +24,9 @@ size_t	ft_strlcat(char *restrict dst, const char *restrict src, size_t dstsize)
 	return (dstlen + srclen);
 }
 
-//負数がオーバーフローしない問題
+// //負数がオーバーフローしない問題
 // #include <string.h>
-// int main(int argc, char const *argv[])
+// int main()
 // {
 // 	char dst1[100] = "HELLO WOLD, GOODBYE WORLD";//25
 // 	char src1[] = "SOSTASUKETE";//11
@@ -37,5 +36,3 @@ size_t	ft_strlcat(char *restrict dst, const char *restrict src, size_t dstsize)
 // 	printf("偽物%ld\n",ft_strlcat(dst2,src2,-2));
 // 	return 0;
 // }
-
-

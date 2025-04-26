@@ -1,6 +1,6 @@
 #include "libft.h"
 //restrict修飾子はreｓtrict以外からのメモリアクセスによる値の変更を受け付けない（ただしコンパイル時、-0オプションで最適化した時のみ）
-void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	char		*dest;
 	const char	*source;
@@ -14,9 +14,9 @@ void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 
 // int main()
 // {
-// 	int src[] ={0,257,2,3,4};
+// 	int src[] ={0,256,2,3,4};
 // 	int dst[]= {9,8,7,6,5};
-// 	int *res = ft_memcpy(dst,src,6);
+// 	int *res = ft_memcpy(dst,src,5);
 // 	for (size_t i = 0; i < 5; i++)
 // 	{
 // 		printf("%#010x\n",*res);
@@ -31,7 +31,7 @@ void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 // char target[SIZE] = "a shiny white sphere";
 // int main( void )
 // {
-//   char * p = target + 8;  /* p points at the starting character                          of the word we want to replace */
+//   char * p = target + 8;
 //   char * source = target + 2; /* start of "shiny" */
 //   printf( "Before memmove, target is \"%s\"\n", target );
 //   memcpy( p, source, 12);

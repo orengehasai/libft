@@ -2,19 +2,16 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char *dest;
-	const char *source;
-	char tmp[4096];
-	size_t cnt;
+	char		*dest;
+	const char	*source;
 
 	dest = (char *)dst;
 	source = (const char *)src;
-	cnt = 0;
-	while (cnt < len)
-		tmp[cnt++] = *source++;
-	cnt = 0;
-	while (cnt < len)
-		*dest++ = tmp[cnt++];
+	while (len > 0)
+	{
+		dest[len - 1] = source[len - 1];
+		len--;
+	}
 	return (dst);
 }
 
@@ -24,9 +21,9 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 // char target[SIZE] = "a shiny white sphere";
 // int main( void )
 // {
-//   char * p = target + 8;  /* p points at the starting character                          of the word we want to replace */
+//   char * p = target + 8;
 //   char * source = target + 2; /* start of "shiny" */
 //   printf( "Before memmove, target is \"%s\"\n", target );
-//   memcpy( p, source, 12);
+//   memmove(p, source, 13);
 //   printf( "After memmove, target becomes \"%s\"\n", target );
 // }
