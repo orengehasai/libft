@@ -1,32 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: takenakatakeshiichirouta <takenakatakes    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/27 03:13:02 by takenakatak       #+#    #+#             */
-/*   Updated: 2025/04/27 03:13:03 by takenakatak      ###   ########.fr       */
+/*   Created: 2025/04/30 02:52:03 by takenakatak       #+#    #+#             */
+/*   Updated: 2025/04/30 03:31:33 by takenakatak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
-{
-	int	cnt;
+// void	f(unsigned int i, char* c)
+// {
+/*   *c += 1;*/
+// }
 
-	cnt = 0;
-	while (*s != '\0')
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+{
+	unsigned int	i;
+
+	i = 0;
+	while (s[i])
 	{
-		s++;
-		cnt++;
+		f(i, &s[i]);
+		i++;
 	}
-	return (cnt);
 }
 
 // int main(int argc, char const *argv[])
 // {
-// 	printf("%d",ft_strlen(""));
+// 	char s[] = "HEEEEEELLOOO";
+// 	printf("%s\n",s);
+// 	ft_striteri(s,f);
+// 	printf("%s\n",s);
 // 	return 0;
 // }

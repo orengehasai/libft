@@ -1,32 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: takenakatakeshiichirouta <takenakatakes    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/27 03:13:02 by takenakatak       #+#    #+#             */
-/*   Updated: 2025/04/27 03:13:03 by takenakatak      ###   ########.fr       */
+/*   Created: 2025/04/30 04:12:47 by takenakatak       #+#    #+#             */
+/*   Updated: 2025/04/30 04:12:48 by takenakatak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	ft_putnbr_fd(int n, int fd)
 {
-	int	cnt;
+	long int	num;
+	char		tmp;
 
-	cnt = 0;
-	while (*s != '\0')
+	num = n;
+	if (n < 0)
 	{
-		s++;
-		cnt++;
+		write(fd, "-", 1);
+		num *= -1;
 	}
-	return (cnt);
+	if (num >= 10)
+		ft_putnbr_fd(num / 10, fd);
+	tmp = num % 10 + '0';
+	write(fd, &tmp, 1);
 }
 
+// #include <fcntl.h>
 // int main(int argc, char const *argv[])
 // {
-// 	printf("%d",ft_strlen(""));
+// 	size_t fd = open("./test.txt",O_RDWR);
+// 	int n = 0;
+// 	ft_putnbr_fd(n, fd);
 // 	return 0;
 // }

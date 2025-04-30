@@ -1,12 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: takenakatakeshiichirouta <takenakatakes    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/27 03:12:34 by takenakatak       #+#    #+#             */
+/*   Updated: 2025/04/28 18:43:22 by takenakatak      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-//restrict修飾子はreｓtrict以外からのメモリアクセスによる値の変更を受け付けない（ただしコンパイル時、-0オプションで最適化した時のみ）
+
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	char		*dest;
-	const char	*source;
+	unsigned char		*dest;
+	const unsigned char	*source;
 
-	dest = (char *)dst;
-	source = (const char *)src;
+	if (dst == NULL && src == NULL)
+		return (NULL);
+	dest = (unsigned char *)dst;
+	source = (const unsigned char *)src;
 	while (n--)
 		*dest++ = *source++;
 	return (dst);
@@ -36,4 +50,15 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 //   printf( "Before memmove, target is \"%s\"\n", target );
 //   memcpy( p, source, 12);
 //   printf( "After memmove, target becomes \"%s\"\n", target );
+// }
+
+// #include <string.h>
+// #include <stdio.h>
+
+// int main()
+// {
+// 	char src[] = "sss";
+// 	printf("%p\n",ft_memcpy(NULL,NULL,4));
+// 	printf("%p\n",memmove(NULL,NULL,4));
+// 	return 0;
 // }

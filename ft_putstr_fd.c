@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: takenakatakeshiichirouta <takenakatakes    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/27 03:13:02 by takenakatak       #+#    #+#             */
-/*   Updated: 2025/04/27 03:13:03 by takenakatak      ###   ########.fr       */
+/*   Created: 2025/04/30 03:43:00 by takenakatak       #+#    #+#             */
+/*   Updated: 2025/04/30 03:44:27 by takenakatak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	ft_putstr_fd(char *s, int fd)
 {
-	int	cnt;
-
-	cnt = 0;
-	while (*s != '\0')
-	{
-		s++;
-		cnt++;
-	}
-	return (cnt);
+	write(fd, s, ft_strlen(s));
 }
 
+// #include <fcntl.h>
 // int main(int argc, char const *argv[])
 // {
-// 	printf("%d",ft_strlen(""));
+// 	size_t fd = open("./test.txt",O_RDWR);
+// 	char *s = "dadaasdasfgga\ndsadas\nassa";
+// 	ft_putstr_fd(s, fd);
 // 	return 0;
-// }
+// }.

@@ -1,15 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: takenakatakeshiichirouta <takenakatakes    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/27 03:13:09 by takenakatak       #+#    #+#             */
+/*   Updated: 2025/04/30 14:15:57 by takenakatak      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {
-	const char	*start;
+	const char		*start;
+	unsigned char	uc;
 
 	start = s;
+	uc = (unsigned char) c;
 	while (*s)
 		s++;
-	while (s != start)
+	while (s >= start)
 	{
-		if (*s == c)
+		if (*s == uc)
 			return ((char *)s);
 		s--;
 	}
@@ -32,4 +46,14 @@ char	*ft_strrchr(const char *s, int c)
 // 	printf( "本物\nThe last occurrence of %c in '%s' is '%s'\n", ch, buf, ptr );
 // 	ptr = ft_strrchr( buf, ch );
 // 	printf( "偽物\nThe last occurrence of %c in '%s' is '%s'\n", ch, buf, ptr );
+// }
+
+// int main()
+// {
+// 	char *src = "abbbbbbbb";
+// 	char *d1 = strrchr(src, 'a');
+// 	char *d2 = ft_strrchr(src, 'a');
+
+// 	printf("d1 : %s\nd2 : %s\n",d1,d2);
+// 	return 0;
 // }
