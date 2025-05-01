@@ -1,33 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: takenakatakeshiichirouta <takenakatakes    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/30 02:41:36 by takenakatak       #+#    #+#             */
-/*   Updated: 2025/05/01 16:57:38 by takenakatak      ###   ########.fr       */
+/*   Created: 2025/05/01 01:24:51 by takenakatak       #+#    #+#             */
+/*   Updated: 2025/05/01 17:46:52 by takenakatak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+t_list	*ft_lstlast(t_list *lst)
 {
-	unsigned int	i;
-	int				reslen;
-	char			*res;
-
-	i = 0;
-	reslen = ft_strlen(s);
-	res = malloc(sizeof(char) * (reslen + 1));
-	if (!res)
-		return (NULL);
-	while (s[i])
-	{
-		res[i] = f(i, s[i]);
-		i++;
-	}
-	res[i] = '\0';
-	return (res);
+	if (!lst)
+		return (lst);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
 }
+
+// int main(int argc, char const *argv[])
+// {
+// 	t_list *l = ((void *)0);
+//     t_list *expected;
+//     t_list *actual;
+
+//     expected = ((void *)0);
+//     actual = ft_lstlast(l);
+//     if (actual == expected)
+//     {
+// 		printf("SUCCESS");
+// 		return 0;
+// 	}
+//     printf("FAILED");
+// 	return 0;
+// }

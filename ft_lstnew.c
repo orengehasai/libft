@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: takenakatakeshiichirouta <takenakatakes    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/30 02:41:36 by takenakatak       #+#    #+#             */
-/*   Updated: 2025/05/01 16:57:38 by takenakatak      ###   ########.fr       */
+/*   Created: 2025/05/01 00:17:31 by takenakatak       #+#    #+#             */
+/*   Updated: 2025/05/01 16:55:18 by takenakatak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+t_list	*ft_lstnew(void *content)
 {
-	unsigned int	i;
-	int				reslen;
-	char			*res;
+	t_list	*res;
 
-	i = 0;
-	reslen = ft_strlen(s);
-	res = malloc(sizeof(char) * (reslen + 1));
+	res = malloc(sizeof(t_list));
 	if (!res)
 		return (NULL);
-	while (s[i])
-	{
-		res[i] = f(i, s[i]);
-		i++;
-	}
-	res[i] = '\0';
+	res->content = content;
+	res->next = NULL;
 	return (res);
 }
+
+// int main(int argc, char const *argv[])
+// {
+// 	t_list test;
+// 	test.content = "aa";
+// 	test.next = ft_lstnew("bb");
+
+// 	printf("test.content:%s\ntest.next:%p\n"
+// 		"test.next->content:%s\ntest.next->next:%p\n"
+// 		 ,(char *)test.content,test.next,
+// 		 (char *)test.next->content,test.next->next);
+// 	return 0;
+// }

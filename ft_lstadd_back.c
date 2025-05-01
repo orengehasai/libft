@@ -1,29 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: takenakatakeshiichirouta <takenakatakes    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/01 16:55:51 by takenakatak       #+#    #+#             */
-/*   Updated: 2025/05/01 16:55:51 by takenakatak      ###   ########.fr       */
+/*   Created: 2025/05/01 01:34:50 by takenakatak       #+#    #+#             */
+/*   Updated: 2025/05/01 21:21:48 by takenakatak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(char *s, int fd)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	write(fd, s, ft_strlen(s));
-	write(fd, "\n", 1);
+	t_list	*tmp;
+
+	tmp = ft_lstlast(*lst);
+	if (!tmp)
+		*lst = new;
+	else
+		tmp -> next = new;
 }
 
-// #include <fcntl.h>
+// #include <string.h>
+
 // int main(int argc, char const *argv[])
 // {
-// 	size_t fd = open("./test.txt",O_RDWR);
-// 	char *s = "FKSKLSLA";
-// 	ft_putendl_fd(s, fd);
-// 	ft_putendl_fd(s, fd);
+// 	t_list *l = ((void *)0);
+//     t_list *n = ft_lstnew(strdup("OK"));
+
+//     ft_lstadd_back(&l, n);
+//     if (l == n && !strcmp(l->content, "OK"))
+//     {
+// 		free(l->next);
+// 		free(l);
+//         printf("TEST_SUCCESS");
+// 		return 0;
+//     }
+//     free(l->next);
+//     free(l);
+//     printf("TEST_FAILED");
 // 	return 0;
 // }

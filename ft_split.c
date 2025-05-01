@@ -6,7 +6,7 @@
 /*   By: takenakatakeshiichirouta <takenakatakes    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 12:47:18 by takenakatak       #+#    #+#             */
-/*   Updated: 2025/04/30 14:25:36 by takenakatak      ###   ########.fr       */
+/*   Updated: 2025/05/02 02:22:34 by takenakatak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,12 @@ static int	*count_lens(char const *s, char c, int cntwords)
 	int	index;
 
 	res = malloc(sizeof(int) * cntwords);
+	if (!res)
+		return (NULL);
 	index = 0;
 	while (*s)
 	{
+		res[index] = 0;
 		while (*s == c)
 			s++;
 		while (*s != c && *s)
@@ -55,7 +58,7 @@ static int	*count_lens(char const *s, char c, int cntwords)
 	return (res);
 }
 
-char	**set_strs(char const *s, char c, int cntwords, int *cntlens)
+static char	**set_strs(char const *s, char c, int cntwords, int *cntlens)
 {
 	int		index;
 	int		instrindex;
@@ -90,34 +93,35 @@ char	**ft_split(char const *s, char c)
 	int		*cntlens;
 	char	**res;
 
-	// if (!s || !*s)
-	// 	return (NULL);
+	if (!s)
+		return (NULL);
 	cntwords = count_words(s, c);
 	cntlens = count_lens(s, c, cntwords);
-	res = set_strs(s, c, cntwords, cntlens);
-	if (!res)
-	{
-		free(cntlens);
+	if (!cntlens)
 		return (NULL);
-	}
+	res = set_strs(s, c, cntwords, cntlens);
+	free(cntlens);
+	if (!res)
+		return (NULL);
 	res[cntwords] = NULL;
 	return (res);
 }
 
 // int main(int argc, char const *argv[])
 // {
-// 	char *str = "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse";
-// 	char c = ' ';
-// 	char **res = ft_split(str,c);
-// 	int cnt = 0;
-// 	if(!res)
-// 		printf("NULL\n");
+// 	char	**tabstr;
+// 	int		i;
+
+// 	i = 0;
+// 	if (!(tabstr = ft_split("lorem ipsum dolor sit "
+//		"amet, consectetur adipiscing elit. Sed non risus. Suspendisse", ' ')))
+// 		printf("NULL");
 // 	else
 // 	{
-// 		while(res[cnt])
+// 		while (tabstr[i] != NULL)
 // 		{
-// 			printf("%s\n",res[cnt]);
-// 			cnt++;
+// 			printf("%s\n", tabstr[i]);
+// 			i++;
 // 		}
 // 	}
 // 	return 0;

@@ -1,33 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: takenakatakeshiichirouta <takenakatakes    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/30 02:41:36 by takenakatak       #+#    #+#             */
-/*   Updated: 2025/05/01 16:57:38 by takenakatak      ###   ########.fr       */
+/*   Created: 2025/05/01 01:19:03 by takenakatak       #+#    #+#             */
+/*   Updated: 2025/05/01 23:28:21 by takenakatak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+int	ft_lstsize(t_list *lst)
 {
-	unsigned int	i;
-	int				reslen;
-	char			*res;
+	size_t	cnt;
 
-	i = 0;
-	reslen = ft_strlen(s);
-	res = malloc(sizeof(char) * (reslen + 1));
-	if (!res)
-		return (NULL);
-	while (s[i])
+	cnt = 0;
+	while (lst)
 	{
-		res[i] = f(i, s[i]);
-		i++;
+		lst = lst->next;
+		cnt++;
 	}
-	res[i] = '\0';
-	return (res);
+	return (cnt);
 }
+
+// int main(int argc, char const *argv[])
+// {
+// 	t_list *l = ((void *)0);
+// 	int actual;
+// 	int expected = 0;
+
+// 	actual = ft_lstsize(l);
+// 	if (actual == expected)
+// 	{
+// 		printf("SUCCESS");
+// 		return 0;
+// 	}
+// 	printf("FAILED");
+// 	return 0;
+// }

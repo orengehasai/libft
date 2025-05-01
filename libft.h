@@ -5,31 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: takenakatakeshiichirouta <takenakatakes    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/27 03:13:26 by takenakatak       #+#    #+#             */
-/*   Updated: 2025/04/27 03:13:26 by takenakatak      ###   ########.fr       */
+/*   Created: 2025/05/02 02:26:27 by takenakatak       #+#    #+#             */
+/*   Updated: 2025/05/02 02:26:27 by takenakatak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-
-#include <stdio.h>
-
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef	struct	s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }				t_list;
-
-typedef struct	s_split_next
-{
-	size_t start;
-	size_t length;
-}				t_split_next;
 
 int				ft_atoi(const char *str);
 

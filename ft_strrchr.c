@@ -6,7 +6,7 @@
 /*   By: takenakatakeshiichirouta <takenakatakes    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 03:13:09 by takenakatak       #+#    #+#             */
-/*   Updated: 2025/04/30 14:15:57 by takenakatak      ###   ########.fr       */
+/*   Updated: 2025/05/02 02:21:41 by takenakatak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,12 @@ char	*ft_strrchr(const char *s, int c)
 	uc = (unsigned char) c;
 	while (*s)
 		s++;
-	while (s >= start)
+	while (1)
 	{
 		if (*s == uc)
 			return ((char *)s);
+		if (s == start)
+			break ;
 		s--;
 	}
 	return (NULL);

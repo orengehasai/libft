@@ -6,7 +6,7 @@
 /*   By: takenakatakeshiichirouta <takenakatakes    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 03:12:39 by takenakatak       #+#    #+#             */
-/*   Updated: 2025/04/30 14:22:32 by takenakatak      ###   ########.fr       */
+/*   Updated: 2025/05/01 16:55:41 by takenakatak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	unsigned char		*dest;
 	const unsigned char	*source;
-	size_t		i;
+	size_t				i;
 
 	if (dst == NULL && src == NULL)
 		return (NULL);
