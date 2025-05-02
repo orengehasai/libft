@@ -23,7 +23,7 @@ void	ft_bzero(void *s, size_t n)
 }
 
 // #include <strings.h>
-
+// #include <stdio.h>
 // int main()
 // {
 // 	char s[50] = "initial string is here";

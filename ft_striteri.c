@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: takenakatakeshiichirouta <takenakatakes    +#+  +:+       +#+        */
+/*   By: stonegaw <stonegaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 02:52:03 by takenakatak       #+#    #+#             */
-/*   Updated: 2025/04/30 03:31:33 by takenakatak      ###   ########.fr       */
+/*   Updated: 2025/05/02 18:34:10 by stonegaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

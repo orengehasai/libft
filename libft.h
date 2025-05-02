@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
 
 typedef struct s_list
 {
@@ -65,6 +66,8 @@ char			**ft_split(char const *s, char c);
 char			*ft_strchr(const char *s, int c);
 
 char			*ft_strdup(const char *s1);
+
+void			ft_striteri(char *s, void (*f)(unsigned int, char*));
 
 char			*ft_strjoin(char const *s1, char const *s2);
 
