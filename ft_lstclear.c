@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: takenakatakeshiichirouta <takenakatakes    +#+  +:+       +#+        */
+/*   By: stonegaw <stonegaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 01:40:57 by takenakatak       #+#    #+#             */
-/*   Updated: 2025/05/01 16:48:59 by takenakatak      ###   ########.fr       */
+/*   Updated: 2025/05/04 17:18:33 by stonegaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
 	t_list	tmp;
 
+	if (!lst || !del)
+		return ;
 	while (*lst)
 	{
 		tmp.next = (*lst)->next;
@@ -23,4 +25,5 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 		free(*lst);
 		*lst = tmp.next;
 	}
+	*lst = NULL;
 }

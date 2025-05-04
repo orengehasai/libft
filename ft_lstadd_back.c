@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: takenakatakeshiichirouta <takenakatakes    +#+  +:+       +#+        */
+/*   By: stonegaw <stonegaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 01:34:50 by takenakatak       #+#    #+#             */
-/*   Updated: 2025/05/01 21:21:48 by takenakatak      ###   ########.fr       */
+/*   Updated: 2025/05/04 17:13:26 by stonegaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*tmp;
 
+	if (!lst || !new)
+		return ;
 	tmp = ft_lstlast(*lst);
 	if (!tmp)
 		*lst = new;
