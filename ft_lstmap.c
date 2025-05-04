@@ -3,21 +3,47 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: takenakatakeshiichirouta <takenakatakes    +#+  +:+       +#+        */
+/*   By: stonegaw <stonegaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 14:50:11 by takenakatak       #+#    #+#             */
-/*   Updated: 2025/05/02 02:22:53 by takenakatak      ###   ########.fr       */
+/*   Updated: 2025/05/04 16:20:22 by stonegaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+void	lstfree(t_list *left, void *con, void (*del)(void *))
+{
+	t_list	*tmp;
+	t_list	*back;
+
+	back = left;
+	del(con);
+	while (back)
+	{
+		del(back->content);
+		tmp = back->next;
+		free(back);
+		back = tmp;
+	}
+}
+
+t_list	*leftfree(t_list *left, void (*del)(void *))
+{
+	t_list	*res;
+
+	res = left->next;
+	del(left->content);
+	free(left);
+	return (res);
+}
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*tmp;
 	t_list	*left;
 	t_list	*back;
-	t_list	*res;
+	void	*con;
 
 	left = ft_lstnew(0);
 	if (!left)
@@ -25,19 +51,21 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	back = left;
 	while (lst)
 	{
-		tmp = ft_lstnew(f(lst->content));
-		if (!tmp)
-			return (NULL);
-		tmp->next = NULL;
+		con = f(lst->content);
+		tmp = ft_lstnew(con);
 		back->next = tmp;
+		if (!tmp)
+		{
+			lstfree(left, con, del);
+			return (NULL);
+		}
 		back = tmp;
 		lst = lst->next;
 	}
-	res = left->next;
-	del(left->content);
-	free(left);
-	return (res);
+	return (leftfree(left, del));
 }
+
+// #include <stdio.h>
 
 // void	*f(void *content)
 // {
@@ -61,7 +89,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 //     l->next->next = ft_lstnew(strdup("-_-"));
 //     ret = ft_lstmap(l, f, del);
 //     if (!strcmp(ret->content, "OK !") && !strcmp(ret->next->content, "OK !")
-//	&&!strcmp(ret->next->next->content,"OK !")&&!strcmp(l->content," 1 2 3 ")
+// 	&&!strcmp(ret->next->next->content,"OK !")&&!strcmp(l->content," 1 2 3 ")
 // 	&&!strcmp(l->next->content,"ss")&&!strcmp(l->next->next->content,"-_-"))
 //     {
 // 		printf("TEST_SUCCESS");

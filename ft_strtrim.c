@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: takenakatakeshiichirouta <takenakatakes    +#+  +:+       +#+        */
+/*   By: stonegaw <stonegaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 18:12:12 by takenakatak       #+#    #+#             */
-/*   Updated: 2025/04/30 14:14:08 by takenakatak      ###   ########.fr       */
+/*   Updated: 2025/05/04 15:30:03 by stonegaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (left > right)
 	{
 		res = malloc(sizeof(char) * 1);
+		if (!res)
+			return (NULL);
 		res[0] = '\0';
 		return (res);
 	}
